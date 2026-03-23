@@ -3,21 +3,17 @@ public:
     int maxNumberOfBalloons(string text) {
         unordered_map<char, int> map;
         int count = 0;
-        string word = "balloon";
 
         for (char c : text) {
             map[c]++;
         }
 
-        while(true) {
-            for (char c : word) {
-                if (map[c] == 0) return count;
+        int bCount = map['b'];
+        int aCount = map['a'];
+        int lCount = map['l'];
+        int oCount = map['o'];
+        int nCount = map['n'];
 
-                map[c]--;
-            }
-            count++;
-        }
-
-        return count;
+        return min({bCount, aCount, lCount, oCount, nCount});
     }
 };
