@@ -12,7 +12,7 @@ public:
         }
 
         for (const auto& m : map) {
-            result.push_back(m.second);
+            result.push_back(move(m.second));
         }
 
         return result;
