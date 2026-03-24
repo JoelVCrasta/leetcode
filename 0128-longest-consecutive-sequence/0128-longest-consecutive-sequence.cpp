@@ -11,8 +11,9 @@ public:
             if (!numSet.count(n - 1)) {
                 int length = 0;
 
-                while (numSet.count(n++)) {
+                while (numSet.count(n)) {
                     length++;
+                    n++;
                 }
 
                 if (length > longestSequence) {
