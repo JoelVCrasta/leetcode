@@ -21,12 +21,10 @@ public:
     }
     
     int top() {
-        if (mainStack.empty()) return -1;
         return mainStack.top();
     }
     
     int getMin() {
-        if (minStack.empty()) return -1;
         return minStack.top();
     }
 };
