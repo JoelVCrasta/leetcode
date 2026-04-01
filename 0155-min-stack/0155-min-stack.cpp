@@ -16,14 +16,8 @@ public:
     }
     
     void pop() {
-        if (mainStack.empty()) return;
-        int top = mainStack.top();
         mainStack.pop();
-
-        if (minStack.empty()) return;
-        if (minStack.top() == top) {
-            minStack.pop();
-        }
+        minStack.pop();
     }
     
     int top() {
