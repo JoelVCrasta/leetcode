@@ -12,7 +12,7 @@ class Solution(object):
             if ss == '(' or ss == '[' or ss == '{':
                 stack.append(ss)
             else:
-                if not stack or pairs[ss] == stack[-1]:
+                if not stack or pairs[ss] != stack[-1]:
                     return False
 
                 stack.pop()
