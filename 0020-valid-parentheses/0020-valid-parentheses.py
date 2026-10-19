@@ -11,11 +11,10 @@ class Solution(object):
         for ss in s:
             if ss == '(' or ss == '[' or ss == '{':
                 stack.append(ss)
-                continue
-            elif stack and pairs[ss] == stack[-1]:
-                stack.pop()
-                continue
+            else:
+                if not stack or pairs[ss] == stack[-1]:
+                    return False
 
-            return False
+                stack.pop()
         
         return len(stack) == 0
