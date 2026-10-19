@@ -1,4 +1,4 @@
-from collections import Counter, defaultdict
+from collections import defaultdict
 
 
 class Solution(object):
@@ -6,7 +6,8 @@ class Solution(object):
   def groupAnagrams(self, strs):
     groups = defaultdict(list)
     for s in strs:
-      # Counter objects are unhashable, so convert items to a sorted tuple for the key
-      key = tuple(sorted(Counter(s).items()))
-      groups[key].append(s)
+      count = [0] * 26
+      for char in s:
+        count[ord(char) - ord("a")] += 1
+      groups[tuple(count)].append(s)
     return list(groups.values())
