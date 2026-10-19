@@ -8,8 +8,8 @@ class Solution(object):
         groups = defaultdict(list)
 
         for s in strs:
-            key = sorted(s)
+            key = "".join(sorted(s))
             
-            groups[str(key)].append(s)
+            groups[key].append(s)
 
         return [val for _, val in groups.items()]
