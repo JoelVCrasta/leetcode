@@ -12,4 +12,4 @@ class Solution(object):
             
             groups[key].append(s)
 
-        return [val for _, val in groups.items()]
+        return list(groups.values())
