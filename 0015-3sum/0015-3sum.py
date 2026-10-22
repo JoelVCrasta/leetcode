@@ -1,6 +1,7 @@
 class Solution(object):
     def threeSum(self, nums):
         result = []
+        res_dict = {}
 
         nums.sort()
         
@@ -12,8 +13,10 @@ class Solution(object):
 
                 if needed in seen:
                     res = [num1, num2, needed]
-                    if res not in result:
+                    x = tuple(sorted(res))
+                    if x not in res_dict:
                         result.append(res)
+                        res_dict[x] = 1
                         del seen[needed]
                     continue
                 
