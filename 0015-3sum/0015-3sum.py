@@ -1,24 +1,25 @@
 class Solution(object):
     def threeSum(self, nums):
-        res_dict = {}
-
         nums.sort()
-        
-        for i, num1 in enumerate(nums):
-            seen = {}
 
-            for num2 in nums[i+1:]:
-                needed = -(num1 + num2)
+        result = []
+        for i in range(len(nums)):
+            if i > 0 and nums[i] == nums[i-1]:
+                continue
+            
+            l, r = i + 1, len(nums) - 1
+            while (l < r):
+                s = nums[i] + nums[l] + nums[r]
+                
+                if s > 0:
+                    r -= 1
+                elif s < 0:
+                    l += 1
+                else:
+                    result.append([nums[i], nums[l], nums[r]])
 
-                if needed in seen:
-                    res = [num1, num2, needed]
-                    x = tuple(sorted(res))
-                    if x not in res_dict:
-                        res_dict[x] = 1
-                        del seen[needed]
-                    continue
-                
-                seen[num2] = 1
-        
-        return [list(key) for key, _ in res_dict.items()]
-                
+                    l += 1
+                    while l < r and nums[l] == nums[l-1]:
+                        l += 1
+
+        return result
