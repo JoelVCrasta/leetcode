@@ -6,6 +6,8 @@
 class Solution:
     def mergeKLists(self, lists: list[ListNode | None]) -> ListNode | None:
         heap = []
+        dummy = ListNode(0)
+        temp = dummy
 
         for l in lists:
             while l:
@@ -14,14 +16,9 @@ class Solution:
 
         heapq.heapify(heap)
 
-        if not heap:
-            return None
-
-        result = ListNode(heapq.heappop(heap))
-        temp = result
         while heap:
             node = ListNode(heapq.heappop(heap))
             temp.next = node
             temp = node
 
-        return result
+        return dummy.next
